@@ -873,7 +873,7 @@ Detta är en **massiv förändring** på fem år. 2019 var en CDN en cache. 2026
 
 Och det har hänt. Flera gånger. Nästa sektion visar hur det kan se ut.
 
-![Centralisering](https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&auto=format&_=medium-right-corners)
+![Centralisering](/images/cables.avif?medium-right-corners)
 
 
 # 5. Vad händer när en stor CDN går ner?
@@ -1089,6 +1089,7 @@ Läs mer: [MDN: Content-Security-Policy](https://developer.mozilla.org/en-US/doc
 
 ## "There are only two hard things in Computer Science:<br>cache invalidation and naming things." — Phil Karlton<br>
 <br>
+
 **På Axis, med Akamai (2016-2018):** stora delar av min tid gick åt att finjustera cachningsregler. Hur länge ska JS cachas? CSS? Bilder? Fonter? HTML-skalet? Vad händer när vi pushar en kritisk fix — hur snabbt når den alla edge-servrar? Varje filtyp krävde sitt eget tänk, och invalidation var ständigt en källa till buggar.
 
 <br>
@@ -1102,7 +1103,20 @@ Läs mer: [MDN: Content-Security-Policy](https://developer.mozilla.org/en-US/doc
 
 # Cachning är smärtsamt, slide 2/2
 
-**Varför gjorde vi inte detta på Axis?** En stor sajt med hundratusentals dagliga besökare och flera deploys per dag får varje gång en våg av cache-missar mot nya filnamn. För mindre sajter är kostnaden försumbar, men för enterprise-trafik kan det bli märkbart i origin-belastning och edge-overhead. Content-hashing är **enkelt** (kan byggas in som build-step vid deploy med några få rader scriptning) — *men inte gratis för en stor sajt med frekventa uppdateringar*.
+**Dagens enklare approach — "content-hashade bundles":**
+
+* Varje deploy genererar filer med unika namn baserade på version eller git-hash:<br>`index-a7f3c9.js`, `index-a7f3c9.css`
+* Filerna cachas **för alltid** (`max-age=31536000, immutable`) — de ändras ju aldrig
+* Ett enda litet **ocachat** skript (eller HTML-fil) pekar ut vilken version som är aktuell
+* Nästa deploy = nya filnamn = webbläsaren hämtar nytt utan invalidation-trassel
+
+<br><br>
+
+**Varför gjorde vi inte detta på Axis?** 
+
+<br>
+
+En stor sajt med hundratusentals dagliga besökare och flera deploys per dag får varje gång en våg av cache-missar mot nya filnamn. För mindre sajter är kostnaden försumbar, men för enterprise-trafik kan det bli märkbart i origin-belastning och edge-overhead. Content-hashing är **enkelt** (kan byggas in som build-step vid deploy med några få rader scriptning) — *men inte gratis för en stor sajt med frekventa uppdateringar*.
 
 # Tack för att ni lyssnade!
 
@@ -1121,3 +1135,4 @@ Läs mer: [MDN: Content-Security-Policy](https://developer.mozilla.org/en-US/doc
 * [Cloudflare post-mortems](https://blog.cloudflare.com/tag/outage/)
 * [Fastly June 2021 outage summary](https://www.fastly.com/blog/summary-of-june-8-outage)
 * [Anycast vs DNS routing explained](https://www.cloudflare.com/learning/cdn/glossary/anycast-network/)
+
