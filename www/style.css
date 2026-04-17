@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  background-color: black;
+  font-family: 'Roboto'
+}
+
+.page {
+  width: min(calc(100vw - 60px), calc((100vh - 100px) * 16 / 10));
+  height: min(calc(100vh - 60px), calc((100vw - 100px) * 10 / 16));
+  aspect-ratio: 16/10;
+  background-color: white;
+  margin: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  container-type: size;
+  container-name: page;
+}
+
+.logo {
+  width: 30cqw;
+  display: block;
+}
+
+.line {
+  border-bottom: 2px solid #899b49;
+  height: 2px;
+  width: 100cqw;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Oswald';
+  margin: 0;
+}
+
+p {
+  margin: 0;
+  margin-bottom: 1cqh;
+  margin-top: 1cqh;
+}
+
+h1 {
+  font-size: 5cqh;
+}
+
+h2 {
+  font-size: 4cqh;
+}
+
+h3 {
+  font-size: 3cqh
+}
+
+p {
+  font-size: 3cqh;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding-inline-start: 3cqw;
+}
+
+li {
+  margin: 0;
+  margin-top: 2cqh;
+  font-size: 3cqh;
+}
+
+h1.main {
+  position: absolute;
+  top: 2.3cqh;
+  right: 2cqw;
+  font-size: 5cqh;
+}
+
+.content {
+  overflow: hidden;
+  position: absolute;
+  top: 14.5cqh;
+  left: 3cqh;
+  right: 3cqh;
+  bottom: 3cqh;
+  font-size: 2cqh;
+}
+
+.content[page-no="1"] {
+
+  h1,
+  h2 {
+    text-align: center;
+  }
+
+  h1 {
+    margin-top: 20cqh;
+    margin-bottom: 1cqh;
+  }
+
+  p {
+    margin-top: 5cqh;
+    text-align: center
+  }
+}
+
+.page-counter {
+  position: absolute;
+  right: 3cqh;
+  bottom: 2cqh;
+  font-size: 2.5cqh;
+}
+
+pre {
+  font-size: 2.5cqh;
+  border: 2px solid #999;
+  padding: 3cqh;
+  border-radius: 2cqh;
+}
+
+h2 {
+  margin-top: 3cqh;
+}
+
+a {
+  color: blue;
+}
+
+img[src*="full-width"] {
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+img[src*="round"] {
+  border-radius: 50%
+}
+
+img[src*="corners"] {
+  border-radius: 3cqh;
+}
+
+img[src*="right"] {
+  float: right;
+  margin-right: 5cqw;
+}
+
+img[src*="small"] {
+  width: 20cqw;
+}
+
+img[src*="medium"] {
+  width: 30cqw;
+}
+
+img[src*="big"] {
+  width: 40cqw;
+}
+
+img[src*="center"] {
+  margin-left: 30cqw;
+}
