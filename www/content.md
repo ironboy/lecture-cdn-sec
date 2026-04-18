@@ -332,8 +332,6 @@ Det här är en historia om:
 
 <br>
 
-Låt oss börja där jag började: med headers.
-
 <br>
 
 ### Fullständig PoC - proof of concept för mitt hack
@@ -341,7 +339,40 @@ Låt oss börja där jag började: med headers.
 * [Ladda hem som zip](https://github.com/ironboy/xml-vector/archive/refs/heads/main.zip)
 * Tänk på: I en editor som Visual Studio Code visas svg-filer som bilder, för att se som kod<br> ändra filändelsen tillfälligt till **.xml**.
 
-# Vad som INTE fanns i headers
+#  Risken som jsDelivr vet om:<br>Att servera HTML-filer är en säkerhetsrisk för dem (slide 1/2)
+
+<br>
+
+Under **Restrictions** på [jsdelivr.com/documentation](https://www.jsdelivr.com/documentation):
+
+<br>
+
+![Från jsDelivr-dokumentation om HTML-filer](/images/jsdelivr-docs-html.png?full-width)
+
+#  Risken som jsDelivr vet om:<br>Att servera HTML-filer är en säkerhetsrisk för dem (slide 2/2)
+
+<br>
+
+Så vad betyder deras kommentar i dokumentationen?
+
+> *"HTML files are served with `Content-Type: text/plain` for security reasons."*
+
+<br>
+
+**De anser sig ha blockerat en attack-yta för phishing (och hosting av hela sajter) genom denna åtgärd:**
+* Om någon laddar upp `phishing.html` till ett GitHub-repo och länkar via jsDelivr...
+* ...så visar webbläsaren **källkoden som text**, inte en renderad sida
+* Exakt för att förhindra phishing-via-CDN
+
+<br>
+
+**Alltså:** jsDelivr har identifierat attack-klassen. De har implementerat en mitigation. De har dokumenterat motivationen.
+
+<br>
+
+Frågan blir: räcker `Content-Type: text/plain` för HTML-filer — när man kan leverera HTML via andra filtyper?
+
+# Vad som INTE fanns i headers för SVG-filer (och även XML-filer)
 
 ## Två kritiska saknade headers<br>
 
