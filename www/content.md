@@ -1,4 +1,4 @@
-# Säkerhet och CDN:er
+# CDN:er och säkerhet
 ## - från global infrastruktur<br>till en PoC som hostar en React-app på jsDelivr
 Thomas Frank, 2026
 
@@ -909,8 +909,6 @@ Det här är den **systemiska risken** med koncentrerad infrastruktur.
 <br>
 
 Recovery började efter ~49 minuter. Full återhämtning tog flera timmar.
-
-![Fastly outage](https://cdn.vox-cdn.com/thumbor/NFxTn_Sl3tXpsp72V3EjTLwUpUM=/0x0:2040x1360/1200x800/filters:focal%28857x517:1183x843%29/cdn.vox-cdn.com/uploads/chorus_image/image/69488103/Fastly.0.png?medium-right-corners)
 
 
 # Fastly-outaget — vad gick offline?

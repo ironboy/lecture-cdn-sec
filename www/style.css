@@ -88,6 +88,9 @@ h1.main {
   top: 2.3cqh;
   right: 2cqw;
   font-size: 5cqh;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
 }
 
 .content {
@@ -172,4 +175,23 @@ img[src*="big"] {
 
 img[src*="center"] {
   margin-left: 30cqw;
+}
+
+.arrow {
+  width: 0;
+  height: 0;
+  border-top: 1.5cqw solid transparent;
+  border-bottom: 1.5cqw solid transparent;
+  display: inline-block;
+  cursor: pointer;
+  position: relative;
+  top: 0.3cqw;
+}
+
+.arrow.left {
+  border-right: 3cqw solid #899b49;
+}
+
+.arrow.right {
+  border-left: 3cqw solid #899b49;
 }

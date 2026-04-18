@@ -66,6 +66,21 @@ document.body.addEventListener('keyup', e => {
   }
 });
 
+document.body.addEventListener('click', e => {
+  const t = e.target;
+  if (t.closest('.arrow.left')) {
+    slideNo--;
+    if (slideNo < 1) { slideNo = max; }
+  }
+  if (t.closest('.arrow.right')) {
+    slideNo++;
+    if (slideNo > max) { slideNo = 1; }
+  }
+  if (t.closest('.arrow')) {
+    location.hash = slideNo;
+  }
+});
+
 window.onhashchange = () => showSlide(location.hash);
 
 slideNo = +(location.hash.slice(1) || '1');
